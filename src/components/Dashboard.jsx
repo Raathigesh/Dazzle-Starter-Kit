@@ -7,20 +7,26 @@ import EditBar from './EditBar';
 import Container from './Container';
 import AddWidgetDialog from './AddWidgetDialog';
 import CustomFrame from './CustomFrame';
+
 // Widgets of the dashboard.
 import BarChart from './widgets/BarChart';
 import LineChart from './widgets/LineChart';
 import DoughnutChart from './widgets/DoughnutChart';
 
-
+// We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css';
+
+// Default styes of dazzle.
 import 'react-dazzle/lib/style/style.css';
+
+// Our styles
 import '../styles/custom.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // Widgets that are available in the dashboard
       widgets: {
         EngineTelemetricsWidget: {
           type: BarChart,
@@ -35,6 +41,7 @@ class App extends Component {
           title: 'Reactor Telemetrics',
         },
       },
+      // Layout of the dashboard
       layout: {
         rows: [{
           columns: [{
@@ -57,13 +64,21 @@ class App extends Component {
     };
   }
 
+  /**
+   * When a widget is removed, the layout should be set again.
+   */
   onRemove = (layout) => {
     this.setState({
       layout: layout,
     });
   }
 
+  /**
+   * Adds new widgget.
+   */
   onAdd = (layout, rowIndex, columnIndex) => {
+    // Open the AddWidget dialog by seting the 'isModalOpen' to true.
+    // Also preserve the details in 'addWidgetOptions'. This will be used later.
     this.setState({
       isModalOpen: true,
       addWidgetOptions: {
@@ -74,12 +89,20 @@ class App extends Component {
     });
   }
 
+  /**
+   * When a widget moved, this will be called. Layout should be given back.
+   * @param  {[type]} layout [description]
+   * @return {[type]}        [description]
+   */
   onMove = (layout) => {
     this.setState({
       layout: layout,
     });
   }
 
+  /**
+   * This will be called when user tries to close the modal dialog.
+   */
   onRequestClose = () => {
     this.setState({
       isModalOpen: false,
@@ -106,17 +129,30 @@ class App extends Component {
     );
   }
 
+  /**
+   * Toggeles edit ode in dashboard.
+   */
   toggleEdit = () => {
     this.setState({
       editMode: !this.state.editMode,
     });
   };
 
+  /**
+   * When user selects a widget from the modal dialog, this will be called.
+   * By calling the 'addWidget' method, the widget could be added to the previous requested location.
+   */
   widgetSelected = (widgetName) => {
     const {layout, rowIndex, columnIndex} = this.state.addWidgetOptions;
+
+    /**
+     * 'AddWidget' method gives you the new layout.
+     */
     this.setState({
       layout: addWidget(layout, rowIndex, columnIndex, widgetName),
     });
+
+    // Close the dialogbox
     this.onRequestClose();
   }
 }

@@ -29,7 +29,6 @@ const AddWidgetDialog = ({ widgets, isModalOpen, onRequestClose, onWidgetSelect}
        </div>
        <div className="modal-footer">
          <button type="button" className="btn btn-default" onClick={onRequestClose}>Close</button>
-         <button type="button" className="btn btn-primary" onClick={onRequestClose}>Add</button>
        </div>
       </div>
     </Modal>
