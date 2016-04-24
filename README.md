@@ -1,6 +1,7 @@
 # Dazzle-Starter-Kit
 Sample project of the [React Dazzle](https://github.com/Raathigesh/Dazzle) dashboard library.
 
+[![Build Status](https://travis-ci.org/Raathigesh/Dazzle-Starter-Kit.svg?branch=master)](https://travis-ci.org/Raathigesh/Dazzle-Starter-Kit)
 ## Usage
 
 - run `npm install`
