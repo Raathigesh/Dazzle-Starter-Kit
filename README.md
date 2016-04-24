@@ -10,4 +10,4 @@ Sample project of the [React Dazzle](https://github.com/Raathigesh/Dazzle) dashb
 Visit `localhost:8080` and you should see the sample running.
 
 ## Demo
-This sample also [available here online]().
+This demo also [available here online](http://raathigesh.com/dazzle).

@@ -78,7 +78,8 @@ class App extends Component {
    */
   onAdd = (layout, rowIndex, columnIndex) => {
     // Open the AddWidget dialog by seting the 'isModalOpen' to true.
-    // Also preserve the details in 'addWidgetOptions'. This will be used later.
+    // Also preserve the details such as the layout, rowIndex, and columnIndex  in 'addWidgetOptions'.
+    //  This will be used later when user picks a widget to add.
     this.setState({
       isModalOpen: true,
       addWidgetOptions: {
@@ -91,8 +92,6 @@ class App extends Component {
 
   /**
    * When a widget moved, this will be called. Layout should be given back.
-   * @param  {[type]} layout [description]
-   * @return {[type]}        [description]
    */
   onMove = (layout) => {
     this.setState({
@@ -131,7 +130,7 @@ class App extends Component {
   }
 
   /**
-   * Toggeles edit ode in dashboard.
+   * Toggeles edit mode in dashboard.
    */
   toggleEdit = () => {
     this.setState({
