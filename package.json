@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-starter",
+  "name": "Dazzle-Starter-Kit",
   "version": "0.1.0",
-  "description": "A boiler-plate setup for React/Redux applications",
+  "description": "Sample project of Dazzle - The Dashboard solution for ReactJS",
   "license": "MIT",
   "engines": {
     "node": "4.x"
