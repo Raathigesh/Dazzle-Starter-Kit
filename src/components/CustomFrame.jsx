@@ -19,7 +19,7 @@ const CustomFrame = ({children, onRemove, editable, title}) => {
 };
 
 CustomFrame.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.element,
   onRemove: PropTypes.func,
   editable: PropTypes.bool,
   title: PropTypes.string,

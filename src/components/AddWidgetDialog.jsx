@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import Modal from 'react-modal';
 
 const AddWidgetDialog = ({ widgets, isModalOpen, onRequestClose, onWidgetSelect}) => {
-  const widgetItems = Object.keys(widgets).map(widget => {
+  const widgetItems = Object.keys(widgets).map((widget, key) => {
     return (
-      <div className="list-group">
+      <div key={key} className="list-group">
         <a href="#" className="list-group-item" onClick={() => onWidgetSelect(widget)}>
           <h6 className="list-group-item-heading">{widgets[widget].title}</h6>
         </a>
@@ -37,7 +37,7 @@ const AddWidgetDialog = ({ widgets, isModalOpen, onRequestClose, onWidgetSelect}
 };
 
 AddWidgetDialog.propTypes = {
-  widgets: PropTypes.obj,
+  widgets: PropTypes.object,
   isModalOpen: PropTypes.bool,
   onRequestClose: PropTypes.func,
   onWidgetSelect: PropTypes.func,

@@ -24,12 +24,17 @@ class DoughnutChart extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    const refreshIntervalId  = setInterval(() => {
       this.state.data[0].value = getRandomInt(0, 40);
       this.setState({
         data: this.state.data,
+        refreshIntervalId,
       });
     }, 2000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.refreshIntervalId);
   }
 
   render() {

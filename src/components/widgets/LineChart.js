@@ -36,7 +36,7 @@ class LineChart extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    const refreshIntervalId = setInterval(() => {
       this.state.data.datasets[0].data.shift();
       this.state.data.datasets[0].data.push(getRandomInt(0, 90));
 
@@ -44,8 +44,13 @@ class LineChart extends Component {
       this.state.data.datasets[1].data.push(getRandomInt(0, 90));
       this.setState({
         data: this.state.data,
+        refreshIntervalId,
       });
     }, 2000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.refreshIntervalId);
   }
 
   render() {
