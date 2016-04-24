@@ -112,7 +112,7 @@ class App extends Component {
   render() {
     return (
     <Container>
-      <AddWidgetDialog widgets={this.state.widgets} isModalOpen={this.state.isModalOpen} onRequestClose={this.onRequestClose} onWidgetSelect={this.widgetSelected}/>
+      <AddWidgetDialog widgets={this.state.widgets} isModalOpen={this.state.isModalOpen} onRequestClose={this.onRequestClose} onWidgetSelect={this.handleWidgetSelection}/>
       <Header />
       <EditBar onEdit={this.toggleEdit} />
       <Dashboard
@@ -123,6 +123,7 @@ class App extends Component {
         editable={this.state.editMode}
         onAdd={this.onAdd}
         onMove={this.onMove}
+        addWidgetComponentText="Add New Widget"
         />
 
     </Container>
@@ -142,7 +143,7 @@ class App extends Component {
    * When user selects a widget from the modal dialog, this will be called.
    * By calling the 'addWidget' method, the widget could be added to the previous requested location.
    */
-  widgetSelected = (widgetName) => {
+  handleWidgetSelection = (widgetName) => {
     const {layout, rowIndex, columnIndex} = this.state.addWidgetOptions;
 
     /**

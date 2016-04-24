@@ -54,12 +54,9 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    publicPath: '/',
-    sourceMapFilename: '[name].[hash].js.map',
+    publicPath: '/dazzle/',
     chunkFilename: '[id].chunk.js',
   },
-
-  devtool: 'source-map',
   plugins: plugins,
 
   devServer: {
