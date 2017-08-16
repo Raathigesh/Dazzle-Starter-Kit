@@ -57,7 +57,7 @@
     "font-awesome-webpack": "0.0.4",
     "helmet": "^1.1.0",
     "react-chartjs": "^0.7.3",
-    "react-dazzle": "^1.2.5",
+    "react-dazzle": "^1.2.6",
     "react-modal": "^1.1.1"
   },
   "keywords": [
